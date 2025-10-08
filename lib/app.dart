@@ -6,7 +6,30 @@ class taskmanagerapp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+   theme: ThemeData(
+     primarySwatch: Colors.green,
+
+     textTheme: TextTheme(
+       titleLarge: TextStyle(
+         fontWeight: FontWeight.w700,
+         fontSize: 28,
+       )
+     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        fixedSize: Size.fromWidth(double.maxFinite),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(4)
+        ),
+        backgroundColor: Colors.green,
+        foregroundColor: Colors.white,
+        padding: EdgeInsets.symmetric(vertical: 12),
+
+      ),
+    ),
+   ),
+
       home: SplashScreen(),
     );
   }
