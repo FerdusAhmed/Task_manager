@@ -5,7 +5,10 @@ import 'package:task_manager/ui/utils/asset_path.dart';
 import 'package:task_manager/ui/wigets/screen_brackground.dart';
 
 class SplashScreen extends StatefulWidget {
+
+
   const SplashScreen({super.key});
+  static const String name = '/';
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -22,9 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> movetonextscreen() async {
     await Future.delayed(Duration(seconds: 3));
     
-    Navigator.pushReplacement(context, MaterialPageRoute(
-
-        builder: (context)=> SignInScreen()));
+    Navigator.pushReplacementNamed(context, SignInScreen.name);
   }
   @override
   Widget build(BuildContext context) {

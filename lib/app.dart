@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/ui/screen/Singup_Screen.dart';
+import 'package:task_manager/ui/screen/sign_in_screen.dart';
 import 'package:task_manager/ui/screen/splash_screen.dart';
 
 class taskmanagerapp extends StatelessWidget {
@@ -30,7 +32,16 @@ class taskmanagerapp extends StatelessWidget {
     ),
    ),
 
-      home: SplashScreen(),
+      initialRoute: '/',
+      routes: {
+     SplashScreen.name : (context) => SplashScreen(),
+     SignInScreen.name : (context) => SignInScreen(),
+        SignUpScreen.name : (context) => SignUpScreen(),
+
+
+      },
+
+
     );
   }
 }

@@ -1,10 +1,12 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task_manager/ui/screen/Singup_Screen.dart';
 import 'package:task_manager/ui/wigets/screen_brackground.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
+  static const String name = 'sign';
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
@@ -148,9 +150,11 @@ class _SignInScreenState extends State<SignInScreen> {
   void _ontapforgot()
   {
 
+
   }
   void _ontapsignup()
   {
+    Navigator.pushNamed(context, SignUpScreen.name);
 
 
   }
