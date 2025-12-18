@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:task_manager/ui/screen/Singup_Screen.dart';
 import 'package:task_manager/ui/wigets/screen_brackground.dart';
 
+import 'forget_pass_email.dart';
+
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
   static const String name = 'sign';
@@ -150,6 +152,7 @@ class _SignInScreenState extends State<SignInScreen> {
   void _ontapforgot()
   {
 
+Navigator.pushNamed(context, forgot_pass .name);
 
   }
   void _ontapsignup()

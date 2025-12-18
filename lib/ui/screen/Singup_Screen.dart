@@ -1,6 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task_manager/ui/screen/sign_in_screen.dart';
 import 'package:task_manager/ui/wigets/screen_brackground.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -233,7 +234,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   void _ontapsignin()
   {
-    Navigator.pop(context);
+    Navigator.pushNamed(context, SignInScreen.name);
 
 
   }
