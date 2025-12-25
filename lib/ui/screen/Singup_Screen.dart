@@ -229,6 +229,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     {
       //TODO : SignIn;
     }
+    Navigator.pushNamedAndRemoveUntil(context, SignInScreen.name, (predicate)=>false);
 
   }
 

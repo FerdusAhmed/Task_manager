@@ -2,6 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/screen/Singup_Screen.dart';
+import 'package:task_manager/ui/screen/nav_var.dart';
 import 'package:task_manager/ui/wigets/screen_brackground.dart';
 
 import 'forget_pass_email.dart';
@@ -147,6 +148,7 @@ class _SignInScreenState extends State<SignInScreen> {
     {
       //TODO : SignIn;
     }
+    Navigator.pushNamedAndRemoveUntil(context, Navbar_screen.name, (predicate)=>false);
 
   }
   void _ontapforgot()
