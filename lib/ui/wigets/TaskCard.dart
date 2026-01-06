@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
+enum tasktype{ tnew,prog,comp,can
+
+}
+
 class Task_card extends StatelessWidget {
   const Task_card({
-    super.key, required this.color,
+    super.key, required this.Taskt,
   });
-  final Color color;
+  final tasktype Taskt;
 
 
   @override
@@ -22,14 +26,14 @@ class Task_card extends StatelessWidget {
           SizedBox(height: 10,),
           Row(
             children: [
-              Chip(label: Text('new',style: TextStyle(
+              Chip(label: Text(_getname(),style: TextStyle(
 
                 color: Colors.white,
 
               ),
 
               ),
-                backgroundColor: color,
+                backgroundColor:  _gettask(),
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadiusGeometry.circular(20),
@@ -48,5 +52,40 @@ class Task_card extends StatelessWidget {
       ),
 
     );
+
+
+  }
+  Color _gettask()
+  {
+    switch(Taskt)
+        {
+      case tasktype.tnew:
+
+          return Colors.blue;
+
+      case tasktype.prog:
+
+        return Colors.yellow;
+      case tasktype.comp:
+       return Colors.purple;
+      case tasktype.can:
+       return Colors.red;
+    }
+
+  }
+  String _getname()
+  {
+    switch (Taskt) {
+      case tasktype.tnew:
+
+        return 'new';
+      case tasktype.prog:
+        return 'progress';
+      case tasktype.comp:
+        return 'complete';
+      case tasktype.can:
+       return 'canceled';
+    }
+
   }
 }

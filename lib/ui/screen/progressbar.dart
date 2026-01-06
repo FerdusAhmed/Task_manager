@@ -18,8 +18,8 @@ class _progressState extends State<progress> {
 
           itemCount: 10,
           itemBuilder: (context,index){
-            return Task_card(
-              color: Colors.orange,
+            return Task_card(Taskt: tasktype.prog,
+
             );
           }),
     );

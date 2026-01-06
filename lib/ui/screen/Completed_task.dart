@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import '../wigets/TaskCard.dart';
 import '../wigets/task_control.dart';
 
-class MetarialSelect extends StatefulWidget {
-  const MetarialSelect({super.key});
+class completed extends StatefulWidget {
+  const completed({super.key});
 
   @override
-  State<MetarialSelect> createState() => _MetarialSelectState();
+  State<completed> createState() => _completedState();
 }
 
-class _MetarialSelectState extends State<MetarialSelect> {
+class _completedState extends State<completed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,33 +23,33 @@ class _MetarialSelectState extends State<MetarialSelect> {
               height: 100,
               child: ListView.separated(
 
-                  itemCount: 4,
+                itemCount: 4,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index){
-                return Summary_card(
-                  title: 'progress',
-                  count: 12,
+                  return Summary_card(
+                    title: 'progress',
+                    count: 12,
 
-                );
-              }, separatorBuilder: (context, index){
+                  );
+                }, separatorBuilder: (context, index){
                 return SizedBox(width: 8,);
               },
 
 
               ),
             ),
-        Expanded(child:
-        ListView.builder(
-          primary: false,
-        shrinkWrap: true,
+            Expanded(child:
+            ListView.builder(
+                primary: false,
+                shrinkWrap: true,
 
-        itemCount: 10,
-        itemBuilder: (context,index){
-        return Task_card(Taskt: tasktype.tnew,
-
-        );
-        })
-        ,),
+                itemCount: 10,
+                itemBuilder: (context,index){
+                  return Task_card(
+                    Taskt: tasktype.comp,
+                  );
+                })
+              ,),
 
           ],
         ),

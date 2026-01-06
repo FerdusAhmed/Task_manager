@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:task_manager/ui/screen/progressbar.dart';
 
 import '../wigets/app_bar.dart';
+import 'Completed_task.dart';
+import 'canceled.dart';
 import 'meterial_selected.dart';
 
 class Navbar_screen extends StatefulWidget {
@@ -18,7 +20,7 @@ class Navbar_screen extends StatefulWidget {
 
 class _Navbar_screenState extends State<Navbar_screen> {
   List<Widget> _screen= [
-    MetarialSelect(),progress(),
+    MetarialSelect(),progress(),completed(),canceled()
   ];
   int _selected = 0;
   @override
