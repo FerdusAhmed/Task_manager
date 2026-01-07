@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/ui/screen/add_task.dart';
 
 import '../wigets/TaskCard.dart';
 import '../wigets/task_control.dart';
 
 class MetarialSelect extends StatefulWidget {
   const MetarialSelect({super.key});
+  static const String name = 'metarial';
 
   @override
   State<MetarialSelect> createState() => _MetarialSelectState();
@@ -54,12 +56,17 @@ class _MetarialSelectState extends State<MetarialSelect> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: ()
-      {
-
-      }, child: Icon(Icons.add),
+      floatingActionButton: FloatingActionButton(onPressed:_ontap,
+        child: Icon(Icons.add),
       ),
     );
+
+
+  }
+
+  void _ontap()
+  {
+    Navigator.pushNamedAndRemoveUntil(context, addtask.name, (predicate)=>false);
   }
 }
 

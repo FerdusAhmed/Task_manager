@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/screen/Singup_Screen.dart';
+import 'package:task_manager/ui/screen/add_task.dart';
 import 'package:task_manager/ui/screen/forget_pass_email.dart';
+import 'package:task_manager/ui/screen/meterial_selected.dart';
 import 'package:task_manager/ui/screen/nav_var.dart';
 import 'package:task_manager/ui/screen/pin_varification.dart';
 import 'package:task_manager/ui/screen/set_password.dart';
 import 'package:task_manager/ui/screen/sign_in_screen.dart';
 import 'package:task_manager/ui/screen/splash_screen.dart';
+import 'package:task_manager/ui/screen/updated.dart';
 
 class taskmanagerapp extends StatelessWidget {
+  static var navigator;
+
+  
+
   const taskmanagerapp({super.key});
 
   @override
@@ -45,6 +52,9 @@ class taskmanagerapp extends StatelessWidget {
         pin_verification.name : (context) => pin_verification(),
         Set_pass.name : (context) => Set_pass(),
         Navbar_screen.name: (context) => Navbar_screen(),
+        addtask.name: (context) => addtask(),
+        MetarialSelect.name :(context) => MetarialSelect(),
+        update.name :(context) => update(),
 
 
       },
