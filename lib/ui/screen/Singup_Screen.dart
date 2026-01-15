@@ -1,8 +1,13 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:task_manager/ui/screen/sign_in_screen.dart';
 import 'package:task_manager/ui/wigets/screen_brackground.dart';
+import 'package:task_manager/ui/wigets/show_snack.dart';
+
+import '../../data/network_caller.dart';
+import '../../data/url.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -19,6 +24,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _fname = TextEditingController();
   final TextEditingController _lname = TextEditingController();
   final TextEditingController _phone = TextEditingController();
+  bool _signupinprogress = false;
 
 
   final GlobalKey <FormState> _formkey = GlobalKey<FormState>();
@@ -185,9 +191,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
+                Visibility(
+                  visible: _signupinprogress == false,
+                  replacement: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  child: ElevatedButton(
 
-                    onPressed: _ontapsignup, child: Icon(Icons.arrow_circle_right_outlined)),
+                      onPressed: _ontapsignup, child: Icon(Icons.arrow_circle_right_outlined)),
+                ),
                 SizedBox(height: 35,),
 
                 Center(
@@ -227,10 +239,58 @@ class _SignUpScreenState extends State<SignUpScreen> {
   {
     if(_formkey.currentState!.validate())
     {
-      //TODO : SignIn;
-    }
-    Navigator.pushNamedAndRemoveUntil(context, SignInScreen.name, (predicate)=>false);
+     _signup();
 
+    }
+
+  }
+  Future<void> _signup () async{
+    _signupinprogress = true;
+    setState(() {
+    });
+
+
+
+
+    Map<String, dynamic> requestbody = {
+      "email":_email.text.trim(),
+      "firstName":_fname.text.trim(),
+      "lastName":_lname.text.trim(),
+      "mobile":_phone.text.trim(),
+      "password":_password.text
+
+    };
+    getNetwork response = await network_caller.posttrequest(
+
+        url: Urls.regibaseurl,body: requestbody);
+    _signupinprogress = false;
+    setState(() {
+    });
+
+    if(response.isSucces)
+      {
+        clearall();
+
+        showsnackbar(context, 'Registration success.please login');
+
+
+      }
+    else
+      {
+        showsnackbar(context, response.error!);
+
+      }
+
+
+
+  }
+  void clearall()
+  {
+    _email.clear();
+    _password.clear();
+    _phone.clear();
+    _fname.clear();
+    _lname.clear();
   }
 
   void _ontapsignin()
@@ -239,6 +299,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
 
   }
+
+
+
   @override
   void dispose() {
     // TODO: implement dispose
@@ -250,4 +313,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     super.dispose();
   }
+
+
+
 }
